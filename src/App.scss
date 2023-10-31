@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+
+$raleway-font: 'Raleway', sans-serif;
+$color-blue-800: #566DED;
+$color-gray-1000: #1B2141;
+$color-gray-200: #EBECF5;
+$color-gray-700: #87899C;
+$color-orange-700: #FF7042;
+
+@mixin typography($font-size, $font-weight, $line-height, $color) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    color: $color;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: $raleway-font, sans-serif;
+    font-variant-numeric: lining-nums proportional-nums;
+}
+
+h3 {
+    @include typography(16px, 700, 24px, $color-gray-1000);
+}
+
+p {
+    @include typography(16px, 500, 24px, $color-gray-1000);
+}
+
