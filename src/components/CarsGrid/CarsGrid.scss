@@ -1,6 +1,7 @@
 .CarsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
-    grid-gap: 1rem;
-    padding: 10%;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+    grid-gap: 1.3rem;
+    grid-area: cars;
+    grid-auto-rows: min-content;
 }

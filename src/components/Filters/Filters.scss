@@ -1,0 +1,11 @@
+@import '../../App.scss';
+
+.Filters {
+    grid-area: filters;
+    
+    ul > li {
+        &::marker {
+            color: transparent;
+        }
+    }
+}

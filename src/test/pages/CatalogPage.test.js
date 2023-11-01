@@ -32,8 +32,8 @@ const carID1 = createCar({ id: 1 });
 const carID2 = createCar({ id: 2 });
 const cars = [carID1, carID2];
 
-jest.mock("../../hooks/useFetchCars", () => ({
-  useFetchCars: () => [createCar({ id: 1 }), createCar({ id: 2 })],
+jest.mock("../../hooks/useFetchCarsAndFilters", () => ({
+  useFetchCarsAndFilters: () => [createCar({ id: 1 }), createCar({ id: 2 })],
 }));
 
 describe("CatalogPage", () => {

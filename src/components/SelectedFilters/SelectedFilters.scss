@@ -1,0 +1,29 @@
+@import '../../App.scss';
+
+.SelectedFilters {
+    grid-area: selected-filters;
+    flex-wrap: wrap;
+    display: flex;
+    row-gap: 8px;
+
+    span {
+        @include typography(14px, 500, 20px, $color-blue-800);
+
+        border-radius: 64px;
+        border: 1px solid $color-blue-500;
+        background: var(--White, #FFF); 
+        margin-right: 8px;
+        margin-bottom: 8px;
+        padding: 4px 8px 4px 12px;
+        height: 28px;
+        cursor: default;
+
+        button {
+            margin-left: 8px;
+            cursor: pointer;
+            background: transparent;
+            color: $color-blue-800;
+            border: none;
+        }
+    }
+}

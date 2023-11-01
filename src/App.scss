@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 
 $raleway-font: 'Raleway', sans-serif;
+$color-blue-500: #B4BEF5;
 $color-blue-800: #566DED;
-$color-gray-1000: #1B2141;
 $color-gray-200: #EBECF5;
+$color-gray-350: #E3E5ED;
 $color-gray-700: #87899C;
+$color-gray-1000: #1B2141;
 $color-orange-700: #FF7042;
 
 @mixin typography($font-size, $font-weight, $line-height, $color) {

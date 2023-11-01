@@ -1,0 +1,10 @@
+.CatalogPage {
+    display: grid;
+    grid-template-areas: 
+        "filters selected-filters"
+        "filters cars";
+    padding: 67px 37px;
+    column-gap: 32px;
+    grid-template-columns: 264px auto;
+    grid-template-rows: 70px auto;
+}
