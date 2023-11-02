@@ -14,7 +14,8 @@
             "selected-filters"
             "cars";
         grid-template-columns: auto;
-        grid-template-rows: auto 70px auto;
+        grid-template-rows: auto auto auto;
         padding: 67px 16px;
+        row-gap: 12px;
     }
 }

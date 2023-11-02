@@ -1,0 +1,17 @@
+@import '../../App.scss';
+
+.ButtonWithIcon {
+    @include typography(14px, 700, 20px, $color-blue-800);
+    align-content: center;
+    height: auto;
+    padding: 0;
+    background: none;
+    border: none;
+    display: flex;
+    white-space: nowrap;
+    cursor: pointer;
+
+    img {
+        margin-right: 4px;
+    }
+}

@@ -6,12 +6,12 @@ import {useInitializeCatalogPage} from "../../hooks/useInitializeCatalogPage";
 import "./CatalogPage.scss";
 
 const CatalogPage = () => {
-    const {filters, selectedFilters, filteredCars, selectFilter, onUnselectFilter} = useInitializeCatalogPage();
+    const {filters, selectedFilters, filteredCars, selectFilter, onUnselectFilter, resetFilters} = useInitializeCatalogPage();
 
     return (
     <main className="CatalogPage">
         <Filters filters={filters} onSelectFilter={selectFilter} />
-        <SelectedFilters selectedFilters={selectedFilters} onUnselectFilter={onUnselectFilter}/>     
+        <SelectedFilters selectedFilters={selectedFilters} onUnselectFilter={onUnselectFilter} resetFilters={resetFilters}/>     
         <CarsSection cars={filteredCars} />
     </main>
     );

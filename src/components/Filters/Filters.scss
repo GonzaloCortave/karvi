@@ -2,10 +2,29 @@
 
 .Filters {
     grid-area: filters;
+
+    & .ButtonWithIcon {
+        display: none;
+        margin-left: auto;
+    }
     
     ul > li {
         &::marker {
             color: transparent;
+        }
+    }
+
+    @media screen and (max-width: 580px) {
+        &__container {
+            display: none;
+        }
+
+        &.showFilters &__container {
+            display: block;
+        }
+
+        & .ButtonWithIcon {
+            display: flex;
         }
     }
 }

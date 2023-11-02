@@ -1,21 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import CarCard from "../CarCard/CarCard";
+import useToggle from "../../hooks/useToggle";
 import "./CarsSection.scss";
 import gridIcon from "../../assets/grid-icon.svg";
+import ButtonWithIcon from "../ButtonWithIcon/ButtonWithIcon";
 
 const CarsSection = ({ cars }) => {
-    const [isListView, setIsListView] = useState(false);
-
-
-    const toggleView = () => {
-        setIsListView(!isListView);
-    }
+    const { isToggled: isListView, toggle: toggleView } = useToggle();
 
     return (
         <section className={`CarsSection ${isListView ?"active-list-view":""}`}>
-            <button onClick={toggleView}>
-                <img src={gridIcon} alt="Toggle view" />
-            </button>
+            <ButtonWithIcon icon={gridIcon} onClick={toggleView}/>
             <div className="CarsSection__cars-container">
                 {cars.map((car) => (
                     <CarCard key={car.id} car={car} isListView={isListView}/>

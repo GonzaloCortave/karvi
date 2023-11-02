@@ -12,6 +12,10 @@ export const useInitializeCatalogPage = () => {
     );
   };
 
+  const resetFilters = () => {
+    setSelectedFilters([]);
+  };
+
   const onUnselectFilter = ({ id }) => {
     setSelectedFilters((prevState) =>
       prevState.filter(({ id: prevId }) => prevId !== id)
@@ -29,6 +33,7 @@ export const useInitializeCatalogPage = () => {
   return {
     selectFilter,
     onUnselectFilter,
+    resetFilters,
     filteredCars,
     filters,
     selectedFilters,
