@@ -7,4 +7,14 @@
     column-gap: 32px;
     grid-template-columns: 264px auto;
     grid-template-rows: 70px auto;
+
+    @media screen and (max-width: 768px) {
+        grid-template-areas: 
+            "filters"
+            "selected-filters"
+            "cars";
+        grid-template-columns: auto;
+        grid-template-rows: auto 70px auto;
+        padding: 67px 16px;
+    }
 }

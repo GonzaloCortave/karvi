@@ -1,5 +1,5 @@
 import React from "react";
-import CarsGrid from "../../components/CarsGrid/CarsGrid";
+import CarsSection from "../../components/CarsSection/CarsSection";
 import Filters from "../../components/Filters/Filters";
 import SelectedFilters from "../../components/SelectedFilters/SelectedFilters";
 import {useInitializeCatalogPage} from "../../hooks/useInitializeCatalogPage";
@@ -12,7 +12,7 @@ const CatalogPage = () => {
     <main className="CatalogPage">
         <Filters filters={filters} onSelectFilter={selectFilter} />
         <SelectedFilters selectedFilters={selectedFilters} onUnselectFilter={onUnselectFilter}/>     
-        <CarsGrid cars={filteredCars} />
+        <CarsSection cars={filteredCars} />
     </main>
     );
 };
