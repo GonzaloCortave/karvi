@@ -24,7 +24,7 @@ const Filter = ({ filterName, values, onSelectFilter }) => {
             <summary onClick={handleSummaryClick}>{capitalizeFirstLetter(filterName)}</summary>
             <ul>
                 {values.map(({ id, name, count }) => (
-                    <li key={id} onClick={() => onSelectFilterClick({ id })}>
+                    <li key={id} onClick={() => onSelectFilterClick({ id })} data-testid={name}>
                         {name} ({count})
                     </li>
                 ))}
