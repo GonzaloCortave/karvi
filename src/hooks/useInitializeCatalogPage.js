@@ -25,7 +25,9 @@ export const useInitializeCatalogPage = () => {
   useEffect(() => {
     setFilteredCars(
       cars.filter((car) =>
-        selectedFilters.every(({ id, filterName }) => car[filterName] === id)
+        selectedFilters.every(({ id, filterName }) =>
+          filterApplyToCar({ car, filterName, id })
+        )
       )
     );
   }, [selectedFilters, cars]);
@@ -40,21 +42,41 @@ export const useInitializeCatalogPage = () => {
   };
 };
 
+const yearFilterApplyToCar = ({ car, id }) => {
+  const [startYear, endYear] = car.year.split("/").map(Number);
+  return startYear <= id && endYear >= id;
+};
+
+function filterApplyToCar({ car, filterName, id }) {
+  if (filterName === "year") {
+    return yearFilterApplyToCar({ car, id });
+  }
+  return car[filterName] === id;
+}
+
+const filterIDIsAlreadySelected = ({ prevFilters, id }) =>
+  prevFilters.some(({ id: prevId }) => prevId === id);
+
+const filterNameIsAlreadySelected = ({ prevFilters, filterName }) =>
+  prevFilters.some(
+    ({ filterName: prevFilterName }) => prevFilterName === filterName
+  );
+
+const updateFilterID = ({ prevFilters, id, filterName }) => {
+  return prevFilters.map((filter) => {
+    if (filter.filterName === filterName) {
+      return { id, filterName };
+    }
+    return filter;
+  });
+};
+
 function updateFilter({ prevFilters, id, filterName }) {
-  if (prevFilters.some(({ id: prevId }) => prevId === id)) {
+  if (filterIDIsAlreadySelected({ prevFilters, id })) {
     return prevFilters;
   }
-  if (
-    prevFilters.some(
-      ({ filterName: prevFilterName }) => prevFilterName === filterName
-    )
-  ) {
-    return prevFilters.map((filter) => {
-      if (filter.filterName === filterName) {
-        return { id, filterName };
-      }
-      return filter;
-    });
+  if (filterNameIsAlreadySelected({ prevFilters, filterName })) {
+    return updateFilterID({ prevFilters, id, filterName });
   }
   return [...prevFilters, { id, filterName }];
 }

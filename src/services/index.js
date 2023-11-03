@@ -16,8 +16,15 @@ const getValidFilters = (rowFilters) => {
 };
 
 export const getCarsAndFilters = async () => {
-  const response = await fetch(CARS_URL);
-  const { availableFilters, items } = await response.json();
-
-  return [items, getValidFilters(availableFilters)];
+  try {
+    const response = await fetch(CARS_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const { availableFilters, items } = await response.json();
+    return [items, getValidFilters(availableFilters)];
+  } catch (error) {
+    console.error("A problem occurred while fetching the data:", error);
+    return [[], []];
+  }
 };
