@@ -1,8 +1,14 @@
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import "./App.scss";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
-  return <CatalogPage />;
+  return (
+    <>
+      <NavBar />
+      <CatalogPage />;
+    </>
+  );
 }
 
 export default App;
